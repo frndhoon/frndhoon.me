@@ -1,21 +1,22 @@
 // ts-check
-import { fileURLToPath } from "node:url";
+import { fileURLToPath } from 'node:url';
 
-import { includeIgnoreFile } from "@eslint/compat";
-import js from "@eslint/js";
-import astro from "eslint-plugin-astro";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
-import svelte from "eslint-plugin-svelte";
-import unusedImports from "eslint-plugin-unused-imports";
-import globals from "globals";
-import ts from "typescript-eslint";
+import { includeIgnoreFile } from '@eslint/compat';
+import js from '@eslint/js';
+import astro from 'eslint-plugin-astro';
+import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import svelte from 'eslint-plugin-svelte';
+import unusedImports from 'eslint-plugin-unused-imports';
+import globals from 'globals';
+import ts from 'typescript-eslint';
 
-const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
+const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
 
 export default ts.config([
   includeIgnoreFile(gitignorePath),
   {
-    files: ["src/**/*.{astro,svelte}"],
+    files: ['src/**/*.{astro,svelte}'],
     languageOptions: { globals: globals.browser },
   },
   js.configs.recommended,
@@ -23,10 +24,10 @@ export default ts.config([
   ...astro.configs.recommended,
   {
     rules: {
-      "no-undef": "off",
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-unused-expressions": [
-        "error",
+      'no-undef': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
         { allowShortCircuit: true },
       ],
     },
@@ -34,48 +35,60 @@ export default ts.config([
   // @see https://github.com/lydell/eslint-plugin-simple-import-sort
   {
     plugins: {
-      "simple-import-sort": simpleImportSort,
+      'simple-import-sort': simpleImportSort,
     },
     rules: {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   // @see https://github.com/sweepline/eslint-plugin-unused-imports
   {
     plugins: {
-      "unused-imports": unusedImports,
+      'unused-imports': unusedImports,
     },
     rules: {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "unused-imports/no-unused-imports": "error",
-      "unused-imports/no-unused-vars": [
-        "warn",
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
         {
-          vars: "all",
-          varsIgnorePattern: "^_",
-          args: "after-used",
-          argsIgnorePattern: "^_",
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
         },
       ],
     },
   },
-  // @see https://sveltejs.github.io/eslint-plugin-svelte/rules/#stylistic-issues
-  ...svelte.configs["flat/recommended"],
+  // @see https://github.com/MelvinVermeer/eslint-plugin-no-relative-import-paths
   {
-    files: ["**/*.svelte"],
+    plugins: {
+      'no-relative-import-paths': noRelativeImportPaths,
+    },
+    rules: {
+      'no-relative-import-paths/no-relative-import-paths': [
+        'error',
+        { allowSameFolder: true, rootDir: 'src' },
+      ],
+    },
+  },
+  // @see https://sveltejs.github.io/eslint-plugin-svelte/rules/#stylistic-issues
+  ...svelte.configs['flat/recommended'],
+  {
+    files: ['**/*.svelte'],
     languageOptions: {
       parserOptions: {
         parser: ts.parser,
       },
     },
     rules: {
-      "svelte/no-useless-mustaches": "error",
-      "svelte/sort-attributes": "error",
-      "svelte/prefer-class-directive": "error",
-      "svelte/prefer-style-directive": "error",
-      "svelte/spaced-html-comment": "error",
+      'svelte/no-useless-mustaches': 'error',
+      'svelte/sort-attributes': 'error',
+      'svelte/prefer-class-directive': 'error',
+      'svelte/prefer-style-directive': 'error',
+      'svelte/spaced-html-comment': 'error',
     },
   },
 ]);

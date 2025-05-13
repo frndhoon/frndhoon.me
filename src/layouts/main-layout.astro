@@ -1,0 +1,15 @@
+---
+import '@/styles/global.css';
+---
+
+<html>
+  <head> </head>
+
+  <body>
+    <div class="container">
+      <main class={Astro.props.class}>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

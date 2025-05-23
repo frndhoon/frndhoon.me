@@ -1,0 +1,37 @@
+---
+import { NAV } from '@/consts';
+
+const { url } = Astro;
+const currentPath = url.pathname;
+---
+
+<nav class="flex items-center gap-1">
+  <a
+    href="/"
+    class={`px-3 py-2 rounded transition-colors ${
+      currentPath === '/'
+        ? 'text-primary'
+        : 'text-body hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800'
+    }`}
+  >
+    Home
+  </a>
+
+  {
+    NAV.map((nav) => {
+      const isActive = currentPath.startsWith(`/${nav}`);
+      return (
+        <a
+          href={`/${nav}`}
+          class={`rounded px-3 py-2 transition-colors ${
+            isActive
+              ? 'text-primary'
+              : 'text-body hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800'
+          }`}
+        >
+          {nav}
+        </a>
+      );
+    })
+  }
+</nav>

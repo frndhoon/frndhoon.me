@@ -1,7 +1,28 @@
 ---
+import BaseHeader from '@/components/common/base-header.astro';
+import BaseSns from '@/components/common/base-sns.astro';
 import MainLayout from '@/layouts/main-layout.astro';
 ---
 
 <MainLayout>
-  <h1>Astro</h1>
+  <!-- Navigation -->
+
+  <!-- Header -->
+  <BaseHeader title="frndhoon ﹒ 우정훈" />
+
+  {/* 소개 */}
+  <div class="my-7">
+    <p class="text-lg">
+      안녕하세요, 친근하고 간단한 것들에 대해 개발하는 우정훈입니다.
+    </p>
+  </div>
+
+  <div class="my-7">
+    {/* 현재 */}
+    <p class="mb-4">현재 웹 개발과 영상 편집 작업을 하고 있습니다.</p>
+    {/* SNS */}
+    <BaseSns class="mt-1" />
+  </div>
+
+  <div class="h-14"></div>
 </MainLayout>

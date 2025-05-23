@@ -5,6 +5,7 @@ body {
   @apply m-0 min-h-screen p-0;
   @apply font-sans text-base leading-7 tracking-normal antialiased;
   @apply bg-page text-body;
+  overflow-y: scroll;
 }
 
 .container {

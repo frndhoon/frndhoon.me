@@ -22,3 +22,45 @@ body {
 .page-transition {
   @apply transition-all duration-300 ease-in-out;
 }
+
+/* ---- scrollbar ---- */
+* {
+  --scrollbar-size: 16px;
+  --scrollbar-size-min: 44px;
+  --scrollbar-color: var(--gray-200);
+  scrollbar-color: var(--scrollbar-color) transparent;
+  /* firefox */
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-thumb {
+  min-width: var(--scrollbar-size-min);
+  min-height: var(--scrollbar-size-min);
+  background-color: var(--scrollbar-color);
+  background-clip: padding-box;
+  border: 5px solid transparent;
+  border-radius: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  --scrollbar-color: var(--gray-300);
+}
+
+::-webkit-scrollbar-thumb:active {
+  --scrollbar-color: var(--gray-300);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}

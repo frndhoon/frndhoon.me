@@ -1,0 +1,17 @@
+---
+import BaseNav from '@/components/common/base-nav.astro';
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+{
+  title && (
+    <header class="mb-8 flex items-center justify-between">
+      <h1 class="text-heading text-2xl font-bold">{title}</h1>
+      <BaseNav />
+    </header>
+  )
+}

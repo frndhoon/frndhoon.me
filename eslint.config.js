@@ -5,8 +5,9 @@ import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import astro from 'eslint-plugin-astro';
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import svelte from 'eslint-plugin-svelte';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import ts from 'typescript-eslint';
@@ -16,7 +17,7 @@ const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
 export default ts.config([
   includeIgnoreFile(gitignorePath),
   {
-    files: ['src/**/*.{astro,svelte}'],
+    files: ['src/**/*.{astro,tsx,jsx}'],
     languageOptions: { globals: globals.browser },
   },
   js.configs.recommended,
@@ -74,21 +75,30 @@ export default ts.config([
       ],
     },
   },
-  // @see https://sveltejs.github.io/eslint-plugin-svelte/rules/#stylistic-issues
-  ...svelte.configs['flat/recommended'],
+  // React configuration
   {
-    files: ['**/*.svelte'],
+    files: ['**/*.{tsx,jsx}'],
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+    },
     languageOptions: {
       parserOptions: {
-        parser: ts.parser,
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect',
       },
     },
     rules: {
-      'svelte/no-useless-mustaches': 'error',
-      'svelte/sort-attributes': 'error',
-      'svelte/prefer-class-directive': 'error',
-      'svelte/prefer-style-directive': 'error',
-      'svelte/spaced-html-comment': 'error',
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      'react/react-in-jsx-scope': 'off', // React 17+ doesn't need React import
+      'react/prop-types': 'off', // Using TypeScript for prop validation
     },
   },
 ]);

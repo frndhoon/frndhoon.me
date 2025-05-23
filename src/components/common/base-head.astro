@@ -1,5 +1,6 @@
 ---
 import BaseFonts from '@/components/common/base-fonts.astro';
+import { SITE } from '@/consts';
 ---
 
 {/* 문자 인코딩 설정 */}
@@ -11,6 +12,13 @@ import BaseFonts from '@/components/common/base-fonts.astro';
 <BaseFonts />
 
 {/* 메타 태그 */}
-<title>사이트 제목</title>
-<meta name="title" content="사이트 제목" />
-<meta name="description" content="사이트 설명" />
+<title>{SITE.title}</title>
+<meta name="title" content={SITE.title} />
+<meta name="description" content={SITE.description} />
+
+{/* 소셜 미디어 태그 */}
+<meta property="og:type" content="website" />
+<meta property="og:title" content={SITE.title} />
+<meta property="og:description" content={SITE.description} />
+<meta property="og:image" content={SITE.image} />
+<meta property="og:url" content={SITE.site} />

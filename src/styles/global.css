@@ -8,9 +8,14 @@ body {
 }
 
 .container {
-  @apply mx-auto w-full;
-  @apply px-6 md:px-8;
-  max-width: min(var(--page-width), 100% - 3rem);
+  @apply w-full max-w-full;
+  padding-right: var(--body-margin-right);
+  padding-left: var(--body-margin-left);
+}
+
+.container > main {
+  @apply max-w-content pt-page mx-auto;
+  min-height: calc(100vh - var(--page-half-top) * 2 - 20px);
 }
 
 /* ---- selection ---- */

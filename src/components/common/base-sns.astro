@@ -1,0 +1,32 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`flex gap-4 ${className}`}>
+  <a
+    href="https://github.com/frndhoon"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-second hover:text-primary transition-colors"
+  >
+    GitHub
+  </a>
+  <a
+    href="mailto:hello@frndhoon.me"
+    class="text-second hover:text-primary transition-colors"
+  >
+    Email
+  </a>
+  <a
+    href="https://otterbit.notion.site/frndhoon-Portfolio-1b82f79c753080f895b5edabeb3973c1?pvs=4"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-second hover:text-primary transition-colors"
+  >
+    Notion
+  </a>
+</div>

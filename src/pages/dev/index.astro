@@ -1,0 +1,19 @@
+---
+import BaseHeader from '@/components/common/base-header.astro';
+import { ProjectList, TechStack } from '@/components/ui';
+import { getAllTechnologies, projects } from '@/data/projects';
+import MainLayout from '@/layouts/main-layout.astro';
+
+const allTechnologies = getAllTechnologies();
+---
+
+<MainLayout>
+  <BaseHeader
+    title="개발 ﹒ Development"
+    subtitle="웹 개발, 프론트엔드 기술, 그리고 다양한 프로젝트들을 소개합니다."
+  />
+
+  <ProjectList projects={projects} client:load />
+
+  <TechStack technologies={allTechnologies} client:load />
+</MainLayout>

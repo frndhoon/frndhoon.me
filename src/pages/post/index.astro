@@ -1,0 +1,84 @@
+---
+import BaseHeader from '@/components/common/base-header.astro';
+import { categories, posts } from '@/data/posts';
+import MainLayout from '@/layouts/main-layout.astro';
+---
+
+<MainLayout>
+  <BaseHeader
+    title="포스트 ﹒ Post"
+    subtitle="일상의 생각들, 배움의 기록, 그리고 개인적인 이야기들을 나누는 공간입니다."
+  />
+
+  <!-- 카테고리 필터 -->
+  <div class="mb-8">
+    <div class="flex flex-wrap gap-2">
+      {
+        categories.map((category) => (
+          <button class="border-border rounded-full border px-3 py-1 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800">
+            {category}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- 포스트 목록 -->
+  <section class="space-y-6">
+    {
+      posts.map((post) => (
+        <article class="border-border border-b pb-6 last:border-b-0">
+          <div class="mb-3 flex items-start justify-between">
+            <div>
+              <h2 class="text-heading mb-2 text-xl font-semibold">
+                <a
+                  href={post.href}
+                  class="hover:text-primary transition-colors"
+                >
+                  {post.title}
+                </a>
+              </h2>
+              <div class="text-second flex items-center gap-3 text-sm">
+                <time datetime={post.date}>
+                  {new Date(post.date).toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span>·</span>
+                <span class="rounded bg-gray-100 px-2 py-1 text-xs dark:bg-gray-800">
+                  {post.category}
+                </span>
+                <span>·</span>
+                <span>{post.readTime} 읽기</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-second mb-4 leading-relaxed">{post.excerpt}</p>
+
+          <a
+            href={post.href}
+            class="text-primary hover:text-primary-light inline-flex items-center text-sm font-medium transition-colors"
+          >
+            더 읽기
+            <svg
+              class="ml-1 h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+      ))
+    }
+  </section>
+</MainLayout>

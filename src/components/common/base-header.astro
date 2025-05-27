@@ -2,16 +2,21 @@
 import BaseNav from '@/components/common/base-nav.astro';
 interface Props {
   title?: string;
+  subtitle?: string;
 }
 
-const { title } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 {
   title && (
-    <header class="mb-8 flex items-center justify-between">
-      <h1 class="text-heading text-2xl font-bold">{title}</h1>
-      <BaseNav />
+    <header class="mb-8">
+      <div class="mb-4 flex items-center justify-between">
+        <h1 class="text-heading text-2xl font-bold">{title}</h1>
+        <BaseNav />
+      </div>
+      {/* 소개 */}
+      {subtitle && <p class="text-body text-lg">{subtitle}</p>}
     </header>
   )
 }

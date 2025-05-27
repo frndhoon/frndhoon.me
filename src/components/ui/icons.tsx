@@ -4,7 +4,7 @@ import type { SVGProps } from 'react';
 
 // logo icons
 
-export function GithubIcon(props: SVGProps<SVGSVGElement>) {
+export const GithubIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,9 +19,9 @@ export function GithubIcon(props: SVGProps<SVGSVGElement>) {
       ></path>
     </svg>
   );
-}
+};
 
-export function NotionIcon(props: SVGProps<SVGSVGElement>) {
+export const NotionIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,9 +36,9 @@ export function NotionIcon(props: SVGProps<SVGSVGElement>) {
       ></path>
     </svg>
   );
-}
+};
 
-export function YoutubeIcon(props: SVGProps<SVGSVGElement>) {
+export const YoutubeIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -58,9 +58,9 @@ export function YoutubeIcon(props: SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+};
 
-export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
+export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -79,9 +79,9 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
       ></path>
     </svg>
   );
-}
+};
 
-export function EmailIcon(props: SVGProps<SVGSVGElement>) {
+export const EmailIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -96,4 +96,4 @@ export function EmailIcon(props: SVGProps<SVGSVGElement>) {
       ></path>
     </svg>
   );
-}
+};

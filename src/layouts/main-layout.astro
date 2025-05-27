@@ -11,10 +11,9 @@ import BaseHead from '@/components/common/base-head.astro';
 
   <body class="page-transition">
     <div class="container">
-
-
       <main class={`${Astro.props.class || ''}`}>
         <slot />
+        <div class="h-14"></div>
       </main>
     </div>
   </body>

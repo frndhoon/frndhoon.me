@@ -41,7 +41,7 @@ const config: SiteConfig = {
   // @see https://giscus.app/
   giscus: {
     repo: 'frndhoon/frndhoon.me',
-    repoId: 'R_kgDONQJYcQ',
+    repoId: 'R_kgDOPGhIwA',
   },
 };
 

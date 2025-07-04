@@ -1,8 +1,8 @@
 import type { SiteConfig } from '~/cfg-schema';
 
 const config: SiteConfig = {
-  siteUrl: 'https://whitespace-blog-template.netlify.app',
-  title: 'whitespace blog',
+  siteUrl: 'https://frndhoon-me.netlify.app/',
+  title: 'frndhoon-me',
   titleTemplate: '%s',
   description: 'minimalism coding blog build with astro',
   favicon: '/favicon.svg',
@@ -12,35 +12,35 @@ const config: SiteConfig = {
     websiteId: '3e44b81b-09f0-4eaf-8c30-aad1b17e7903',
   },
   bio: {
-    name: 'your name',
+    name: 'frndhoon',
     avatar: '/avatar.avif',
-    description: 'your long description',
+    description: '친근함으로 연결하는, 프론트엔드 개발자',
     links: [
       {
         label: 'mail',
-        url: 'mailto:your-email@example.com',
+        url: 'mailto:frndhoon@gmail.com',
       },
       {
         label: 'github',
-        url: 'https://github.com/your-github-username',
+        url: 'https://github.com/frndhoon',
       },
       {
         label: 'linkedin',
-        url: 'https://www.linkedin.com/in/your-linkedin-username',
+        url: 'https://www.linkedin.com/in/frndhoon',
       },
       {
         label: 'x',
-        url: 'https://twitter.com/your-twitter-username',
+        url: 'https://twitter.com/frndhoon',
       },
       {
         label: 'instagram',
-        url: 'https://www.instagram.com/your-instagram-username',
+        url: 'https://www.instagram.com/frndhoon',
       },
     ],
   },
   // @see https://giscus.app/
   giscus: {
-    repo: 'bepyan/whitespace-blog-template',
+    repo: 'frndhoon/frndhoon.me',
     repoId: 'R_kgDONQJYcQ',
   },
 };

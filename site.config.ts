@@ -28,10 +28,10 @@ const config: SiteConfig = {
         label: 'linkedin',
         url: 'https://www.linkedin.com/in/jeonghoon-woo-56b440371/',
       },
-      {
-        label: 'x',
-        url: 'https://twitter.com/frndhoon',
-      },
+      // {
+      //   label: 'x',
+      //   url: 'https://twitter.com/frndhoon',
+      // },
       {
         label: 'instagram',
         url: 'https://www.instagram.com/frndhoon',

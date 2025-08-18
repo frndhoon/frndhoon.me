@@ -1,0 +1,110 @@
+---
+title: 'What is HTTP?'
+description: 'HTTP는 무엇인가?'
+date: 2025-08-17 01:21:00
+updatedDate: 2025-08-17 01:21:00
+draft: false
+tags:
+  - internet
+---
+
+## 도메인 이름 (인터넷의 주소 체계)
+
+**도메인 이름**은 인터넷의 핵심 인프라다. 인터넷상의 모든 웹 서버에 사람이 읽고 기억하기 쉬운 주소를 제공하는 역할을 한다.
+
+인터넷에 연결된 모든 컴퓨터는 **공개 IP 주소**(예: IPv4 `192.0.2.172` 또는 IPv6 `2001:db8:8b73:0000:0000:8a2e:0370:1337`)로 접속할 수 있다. 컴퓨터는 이런 주소를 쉽게 다루지만, 사람은 IP 주소를 외우기도, 누가 서버를 운영하는지 파악하기도 힘들다. IP 주소는 시간이 지나면 바뀔 수도 있고. 이 모든 문제를 해결하려고 우리가 사용하는 것이 바로 **도메인 이름**이다.
+
+---
+
+## 도메인 이름의 구조
+
+![domain](/what-is-a-domain-name/domain-name-structure.avif)
+
+도메인 이름은 여러 부분으로 이루어져 있고, **점**(`.`)으로 구분되며 **오른쪽에서 왼쪽으로 읽는다.**
+
+- **TLD (Top-Level Domain):** 최상위 도메인으로, 도메인 이름의 가장 마지막 부분이다. `.com`, `.org`, `.net`처럼 일반적인 TLD는 특별한 제한이 없지만, 일부 TLD는 엄격한 정책을 따르기도 한다.
+  - `.us`, `.fr`, `.se` 같은 지역 TLD는 특정 국가나 언어권의 리소스임을 나타낸다고 보면 된다.
+  - `.gov` TLD는 정부 부처만 사용할 수 있다.
+  - `.edu` TLD는 교육 기관만 쓸 수 있다.
+  - TLD의 최대 길이는 63자지만, 대부분은 2~3자 정도다. 전체 목록은 **ICANN**이 관리하고 있다.
+    _ICANN : 국제 인터넷 주소 관리 기구_
+- **라벨(Label) 또는 구성 요소(Component):** TLD 앞에 오는 부분을 라벨이라고 한다. 라벨은 알파벳, 숫자, 하이픈(-)으로 구성되며, 길이는 1~63자다. 하이픈은 처음이나 마지막에 올 수 없다. `a`, `97`, `hello-strange-person-16-how-are-you` 모두 유효한 라벨이다.
+- **SLD (Secondary Level Domain):** TLD 바로 앞에 있는 라벨을 SLD라고 부른다. (`mozilla.org`에서 `mozilla`가 SLD).
+
+도메인 이름은 여러 라벨을 가질 수 있다. 예를 들어, `informatics.ed.ac.uk`는 유효한 도메인 이름이다. 내가 소유한 도메인(`mozilla.org`)으로 `developer.mozilla.org`, `support.mozilla.org` 같은 **서브도메인**을 만들어 다양한 콘텐츠를 제공할 수도 있다.
+
+---
+
+## 도메인 이름 구매하기
+
+### 누가 도메인 이름을 소유할까?
+
+사실 도메인 이름을 '사는' 것은 불가능하다. 만약 모든 도메인을 살 수 있다면 사용되지 않는 도메인이 계속 묶여서 웹이 금방 꽉 차버릴 것이다.
+
+대신, 1년 이상 도메인 이름을 **사용할 권리**에 대해 비용을 지불한다. 이 권리는 갱신할 수 있고, 갱신 시에는 다른 사람보다 우선권이 있다. 하지만 도메인 이름을 영원히 소유하는 것은 아니다.
+
+- **레지스트라**(registrar)라는 회사가 도메인 이름 레지스트리를 사용해 도메인과 나를 연결하는 기술 및 관리 정보를 추적하고 관리한다. 참고로 일부 도메인은 레지스트라가 아닌 다른 곳에서 관리하기도 한다. 예를 들어, `.fire` 도메인은 아마존에서 관리한다.
+
+### 사용 가능한 도메인 이름 찾기
+
+도메인 이름이 사용 가능한지 알아보는 방법은 간단하다.
+
+1. **도메인 레지스트라 웹사이트**에 접속한다. 대부분 `whois` 서비스를 제공해서 도메인이 사용 가능한지 알려준다.
+2. 셸이 내장된 시스템을 사용한다면 `whois` 명령어를 직접 입력한다.
+
+예를 들어, `whois mozilla.org`를 입력하면 아래와 같은 정보가 나온다.
+
+```
+Domain Name:MOZILLA.ORG
+Domain ID: D1409563-LROR
+Creation Date: 1998-01-24T05:00:00Z
+Updated Date: 2013-12-08T01:16:57Z
+Registry Expiry Date: 2015-01-23T05:00:00Z
+Sponsoring Registrar:MarkMonitor Inc. (R37-LROR)
+Sponsoring Registrar IANA ID: 292
+WHOIS Server:
+Referral URL:
+Domain Status: clientDeleteProhibited
+Domain Status: clientTransferProhibited
+Domain Status: clientUpdateProhibited
+Registrant ID:mmr-33684
+Registrant Name:DNS Admin
+Registrant Organization:Mozilla Foundation
+Registrant Street: 650 Castro St Ste 300
+Registrant City:Mountain View
+Registrant State/Province:CA
+Registrant Postal Code:94041
+Registrant Country:US
+Registrant Phone:+1.6509030800
+```
+
+보다시피, `mozilla.org`는 모질라 재단이 이미 등록해서 내가 등록할 수 없다.
+
+반면에, `whois afunkydomainname.org`를 입력하면 "NOT FOUND"라고 나온다. 이 도메인은 `whois` 데이터베이스에 없으므로, 등록 신청을 할 수 있다는 뜻이다.
+
+### 도메인 이름 등록하기
+
+과정은 매우 간단하다.
+
+1. 레지스트라 웹사이트에 접속한다.
+2. 대부분 '도메인 이름 얻기' 같은 버튼이 있으니 클릭한다.
+3. 필요한 모든 세부 정보를 작성한다. 이때 원하는 도메인 이름을 오타 없이 제대로 썼는지 확인하는 것이 중요하다. 일단 결제하면 수정할 수 없기 때문이다.
+4. 도메인 이름이 제대로 등록되면 레지스트라가 알려줄 것이다. 몇 시간 안에 모든 DNS 서버가 내 DNS 정보를 받게 된다.
+5. **참고:** 레지스트라가 실제 주소를 요구할 때가 있다. 정확하게 입력해야 한다. 일부 국가에서는 유효한 주소를 제공하지 못하면 도메인을 폐쇄해야 하기 때문이다.
+
+### DNS 정보 갱신
+
+DNS 데이터베이스는 전 세계 모든 DNS 서버에 저장되어 있다. 이 서버들은 **'권한 있는 이름 서버(authoritative name servers)'** 또는 '**최상위 DNS 서버**(top-level DNS servers)'라고 불리는 몇몇 특별한 서버를 참조한다. 이들은 시스템을 관리하는 '대장 서버'와 같다.
+
+레지스트라가 특정 도메인에 대한 정보를 생성하거나 업데이트하면, 이 정보는 모든 DNS 데이터베이스에서 갱신되어야 한다. 도메인 정보를 알고 있는 각 DNS 서버는 일정 시간 동안 정보를 저장하고 있다가 자동으로 무효화한 후 갱신한다(권한 있는 서버에 쿼리하여 업데이트된 정보를 가져온다). 따라서 DNS 서버들이 최신 정보를 받기까지는 약간의 시간이 걸린다.
+
+### DNS 요청은 어떻게 작동할까?
+
+![dns-request-work](/what-is-a-domain-name/dns-request-work.avif)
+
+웹페이지를 보려면 IP 주소보다 도메인 이름을 입력하는 것이 훨씬 쉽다. 그 과정은 다음과 같다.
+
+1. 브라우저 주소창에 `mozilla.org`를 입력한다.
+2. 브라우저는 컴퓨터에게 이 도메인 이름에 해당하는 IP 주소를 이미 알고 있는지 묻는다(로컬 DNS 캐시 사용). 알고 있다면, 이름이 IP 주소로 변환되고 브라우저는 웹 서버와 콘텐츠를 주고받는다. 여기서 끝이다.
+3. 컴퓨터가 `mozilla.org` 뒤에 있는 IP 주소를 모른다면, **DNS 서버**에게 묻는다. DNS 서버의 역할은 바로 각 등록된 도메인 이름에 해당하는 IP 주소를 알려주는 것이다.
+4. 이제 컴퓨터가 요청된 IP 주소를 알았으니, 브라우저는 웹 서버와 콘텐츠를 주고받을 수 있다.
